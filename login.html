@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大事件登陆页面</title>
+    <!-- 路径中的/ 表示服务器根目录，即大事件项目文件夹  但是只有服务器环境才可以直接使用/ 表示根目录  同时要打开live serve 插件模拟服务器环境 -->
+
+    <!-- 先加载别人的  在加载自己的  后写的权限重  如果框架中的不符合要求 我们可以自己写js和css去覆盖 -->
+
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <script src='/assets/lib/jquery.js'></script>
+    <script src='/assets/lib/layui/layui.all.js'></script>
+    <script src='/assets/js/login.js'></script>
+</head>
+
+<body>
+    <!-- logo区域 start -->
+    <div id="logo">
+        <img src="/assets/images/logo.png" alt="">
+    </div>
+
+    <!-- logo区域 end -->
+
+
+    <!-- 登录表单区域 start -->
+    <div id="login">
+        <!-- 标题图片 -->
+        <img src="/assets/images/login_title.png" class='login_title' alt="">
+        <!-- 表单 -->
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+                    class="layui-input">
+            </div>
+
+            <div class="layui-form-item">
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                    autocomplete="off" class="layui-input">
+            </div>
+
+            <div class="layui-form-item">
+                <button class="layui-btn layui-bg-blue layui-btn-fluid" lay-submit lay-filter="formDemo">登录</button>
+            </div>
+            <div class="goto-register">
+                <a href="#">去注册账号</a>
+            </div>
+        </form>
+
+    </div>
+    <!-- 登录表单区域 end -->
+
+
+    <!-- 注册表单区域 start -->
+    <div id="register">
+        <!-- 标题图片 -->
+        <img src="/assets/images/login_title.png" class='login_title' alt="">
+        <!-- 表单 -->
+        <form class="layui-form" action="">
+            <!-- 用户名 -->
+            <div class="layui-form-item">
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+                    class="layui-input">
+            </div>
+            <!-- 密码 -->
+            <div class="layui-form-item">
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                    autocomplete="off" class="layui-input">
+            </div>
+            <!-- 再次输入密码 -->
+            <div class="layui-form-item">
+                <input type="password" name="password" required lay-verify="required" placeholder="请再次输入密码"
+                    autocomplete="off" class="layui-input">
+            </div>
+            <!-- 注册按钮 -->
+            <div class="layui-form-item">
+                <button class="layui-btn layui-bg-blue layui-btn-fluid" lay-submit lay-filter="formDemo">登录</button>
+            </div>
+            <!-- 链接 -->
+            <div class="goto-login">
+                <a href="#">已有账号，去登陆</a>
+            </div>
+        </form>
+    </div>
+    <!-- 注册表单区域 end -->
+
+
+</body>
+
+</html>
