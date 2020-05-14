@@ -1,5 +1,5 @@
 $(function () {
-    // 去注册链接
+    // ------------------------登录注册表单切换--------------------
     $('.goto-register a').on('click', function () {
         $('#login').hide().next().show();
     });
@@ -8,18 +8,20 @@ $(function () {
         $('#register').hide().prev().show();
     });
 
-    // 注册事件提交
+
+    // -------------------------注册事件提交---------------------------
     $('#register form').on('submit', function (e) {
         //1.阻止默认行为
         e.preventDefault();
         var data = $(this).serialize();
-        $.post({
+        //serialize()是根据name来获取表单各项的值，再次输入密码不用提交，所以不要写name
+        $.ajax({
             type: 'post',
             url: 'http://www.liulongbin.top:3007/api/reguser',
             data: data,
             success: function (res) {
                 // 无论成功和失败都要提示
-                alert(res.message);
+                layer.msg(res.message);
                 if (res.status === 0) {
                     $('#register').hide().prev().show();
                 }
@@ -46,5 +48,25 @@ $(function () {
 
         },
     });
+
+
+    // 登录功能代码
+    $('#login form').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'http://www.liulongbin.top:3007/api/login',
+            data: $(this).serialize(),
+            success: function (res) {
+                layer.msg(res.message); // 无论成功或者失败都要提示
+
+                if (res.status === 0) {
+                    // 登陆成功后 返回值有一个token是一个身份验证   需要自己保存到本地存储中
+                    localStorage.setItem('token', res.token);
+                    location.href = '/index.html';
+                }
+            }
+        })
+    })
 
 });
