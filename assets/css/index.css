@@ -1,0 +1,39 @@
+.layui-icon {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* 头像调整 */
+.text-img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #419488;
+    border-radius: 50%;
+    font-size: 18px;
+    /* 隐藏头像 */
+    display: none;
+}
+
+.side-nav-username {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+
+/* 调整iframe */
+.layui-body iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* 去掉iframe的滚动条  设置iframe 父元素  overflow:hidden */
+.layui-body {
+    overflow: hidden;
+}
