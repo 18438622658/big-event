@@ -28,10 +28,10 @@ function getUserInfo() {
             if (res.status === 0) {
                 // 设置欢迎语   有昵称就使用昵称  没有用username
                 var name = res.data.nickname || res.data.username;
-                $('.welcome').html('欢迎你&nbsp;&nbsp' + name);
+                $('.welcome').html('欢迎你&nbsp;&nbsp;' + name);
                 // 设置头像  有图片设置图片 没图片取第一个字
-                if (res.data.userpic) {
-                    $('.layui-nav-img').attr('src', res.userpic).show();
+                if (res.data.user_pic) {
+                    $('.layui-nav-img').attr('src', res.data.user_pic).show();
                     $('.text-img').hide();
                 } else {
                     $('.layui-nav-img').hide();
