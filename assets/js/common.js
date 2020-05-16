@@ -7,7 +7,7 @@ if (!localStorage.getItem('token')) {
 $(function () {
     $.ajaxPrefilter(function (options) {
         // options就是ajax请求的里的所有配置项  包括自己发请求的时候写的和默认的属性
-        console.log(options);
+        // console.log(options);
 
         // 同统一配置url   
         options.url = 'http://www.liulongbin.top:3007' + options.url;
@@ -24,7 +24,7 @@ $(function () {
         options.complete = function (xhr) {
             // 进度条完成消失
             NProgress.done();
-            console.log(xhr); //xhr里有服务器返回值 在responseJSON中
+            // console.log(xhr); //xhr里有服务器返回值 在responseJSON中
             if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
                 //每次ajax 请求完成之后，判断status和message 是否失败说明客户使用了一个假的token
                 localStorage.removeItem('token');
