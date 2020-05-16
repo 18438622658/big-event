@@ -6,6 +6,9 @@ $(function () {
     // 删除token  跳转到login.html
     $('#logout').click(function () {
         // 弹出层询问是否确定退出   删除token
+        // alert('你确定要推出吗');
+        let layer = layui.layer;
+
         layer.confirm('确定退出吗?', function (index) {
             //do something
             localStorage.removeItem('token');
