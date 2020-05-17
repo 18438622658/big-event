@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章列表</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="/assets/css/article/article.css">
+
+    <script src='/assets/lib/jquery.js'></script>
+    <script src='/assets/lib/layui/layui.all.js'></script>
+    <script src='/assets/lib/template-web.js'></script>
+    <script src='/assets/lib/nprogress/nprogress.js'></script>
+    <script src='/assets/js/common.js'></script>
+    <script src='/assets/js/article/article.js'></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <!-- 搜索区 -->
+            <form class='layui-form'>
+                <div class="layui-inline">
+                    <div class="layui-input-inline" style="width: 100px;">
+                        <select name="city" lay-verify="">
+                            <option value="">请选择一个城市</option>
+                            <option value="010">北京</option>
+                            <option value="021">上海</option>
+                            <option value="0571">杭州</option>
+                        </select>
+                    </div>
+
+                    <div class="layui-input-inline" style="width: 100px;">
+                        <select name="city" lay-verify="">
+                            <option value="">请选择一个城市</option>
+                            <option value="010">北京</option>
+                            <option value="021">上海</option>
+                            <option value="0571">杭州</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <div class="layui-input-inline" style="width: 100px;">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                    </div>
+                </div>
+            </form>
+            <!-- 表格区 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="30%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="15%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <!-- 分页区 -->
+        </div>
+    </div>
+
+
+    <script id='tpl-article' type='text/html'>
+        {{each data val}}
+        <tr>
+            <td>{{val.title}}</td>
+            <td>{{val.cate_name}}</td>
+            <td>{{val.pub_date}}</td>
+            <td>{{val.state}}</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-sm  edit" data-id='{{val.Id}}' data-name='{{val.name}}'
+                    data-alias='{{val.alias}}'>编辑</button>
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-danger  delete"
+                    data-id='{{val.Id}}'>删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+</body>
+
+</html>
